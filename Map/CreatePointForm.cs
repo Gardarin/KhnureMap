@@ -13,17 +13,25 @@ namespace Map
     public partial class CreatePointForm : Form
     {
         public Model.Node NewNode { get; set; }
+        public int Id { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public int Floor { get; set; }
 
         public CreatePointForm()
         {
             InitializeComponent();
+            
+        }
+
+        public void SetCoordinates()
+        {
+            label1.Text = "" + X + "   " + Y;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            NewNode = new Model.Node(textBox1.Text, X, Y);
+            NewNode = new Model.Node(Id,textBox1.Text,Floor, X, Y);
             this.Close();
         }
     }
